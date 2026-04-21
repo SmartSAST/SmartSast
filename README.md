@@ -4,37 +4,87 @@
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)
 
-> **Versión:** 2.3 (Hardened) | **Última actualización:** Abril 2026
+> **Version:** 2.3 (Hardened) | **Last Updated:** April 2026
 
-**SmartSAST** es una herramienta innovadora de *Static Application Security Testing* (SAST) que utiliza **Modelos de Lenguaje Grandes (LLMs)** para identificar vulnerabilidades de seguridad directamente en tu código fuente. Diseñada para privacidad y facilidad de uso, SmartSAST proporciona análisis preciso impulsado por IA **sin enviar tu código a servidores externos**.
-
----
-
-## 🚀 Novedades en la Versión 2.3
-
-| Característica | Descripción | Beneficio |
-|---------------|-----------|-----------|
-| 🔍 **RAG Optimizado** | Carga bajo demanda + expansión semántica de CWEs relacionados | Menor uso de memoria, mayor precisión contextual |
-| 📊 **Reportes en Vivo** | Progreso en tiempo real con barras de avance y estadísticas | Mejor experiencia de usuario y monitoreo |
-| 🧹 **Gestión de Memoria** | Limpieza automática de GPU/RAM configurable | Evita desconexiones en Colab Free Tier |
-| ⚡ **Optimizaciones Colab** | Saltar análisis innecesarios, caché de AST, modelos cuantizados | Hasta 3x más rápido en entornos limitados |
-| 🔄 **Guardado Progresivo** | Guardado automático cada X segundos durante el análisis | Protege tu trabajo ante desconexiones |
-| 🎯 **Filtrado Inteligente** | Pre-filtrado semántico basado en patrones de código | Reduce llamadas innecesarias al LLM |
+**SmartSAST** is an innovative *Static Application Security Testing* (SAST) tool that leverages **Large Language Models (LLMs)** to identify security vulnerabilities directly in your source code. Designed for privacy and ease of use, SmartSAST delivers AI-powered precise analysis **without sending your code to external servers**.
 
 ---
 
-## 📋 ¿Qué hace SmartSAST?
+## 🚀 What's New in Version 2.3
 
-SmartSAST es una herramienta SAST construida en Python que:
-
-1. 🔎 **Escanea código** con Semgrep para hallazgos iniciales basados en reglas
-2. 🧠 **Verifica con LLM** cada hallazgo para reducir falsos positivos
-3. 🔗 **Analiza flujos de taint** (intra e inter-procedurales) para detectar inyecciones
-4. 🎯 **Realiza análisis semántico** para encontrar vulnerabilidades de lógica de negocio
-5. 🧩 **Fusiona resultados** con verificación AST para máxima precisión
-6. 📄 **Genera reportes JSON** estructurados con CWE, CWSS y soluciones
+| Feature | Description | Benefit |
+|---------|-------------|---------|
+| 🔍 **Optimized RAG** | On-demand loading + semantic expansion of related CWEs | Lower memory usage, higher contextual precision |
+| 📊 **Live Progress Reporting** | Real-time progress bars with statistics | Better UX and monitoring during analysis |
+| 🧹 **Memory Management** | Configurable automatic GPU/RAM cleanup | Prevents disconnections on Colab Free Tier |
+| ⚡ **Colab Optimizations** | Skip unnecessary analysis, AST caching, quantized models | Up to 3x faster on resource-limited environments |
+| 🔄 **Progressive Saving** | Auto-save every X seconds during analysis | Protects your work against unexpected disconnections |
+| 🎯 **Smart Pre-filtering** | Semantic pre-filtering based on code patterns | Reduces unnecessary LLM calls |
 
 ---
+
+## 📋 What Does SmartSAST Do?
+
+SmartSAST is a Python-based SAST tool that:
+
+1. 🔎 **Scans code** with Semgrep for initial rule-based findings
+2. 🧠 **Verifies with LLM** each finding to reduce false positives
+3. 🔗 **Analyzes taint flows** (intra and inter-procedural) to detect injection vulnerabilities
+4. 🎯 **Performs semantic analysis** to find business logic vulnerabilities
+5. 🧩 **Merges results** with AST verification for maximum precision
+6. 📄 **Generates structured JSON reports** with CWE, CWSS, and remediation guidance
+
+---
+
+## 🛠️ Prerequisites
+
+### Recommended Environment
+- ✅ **Google Colab** (Free/Pro/Pro+) with GPU or TPU
+- ✅ Internet connection for downloading models and dependencies
+- ✅ Google Drive account with available storage
+
+### RAG Dataset (Optional but Recommended)
+```bash
+# Download the CWE-top25 dataset
+# URL: https://github.com/NLPSaST/SmartSast/raw/main/CWE-top25-20250705T164339Z-1-001.zip
+```
+
+## 🚀 How to Use SmartSAST in Google Colab
+###Step 1: Open the Notebook
+
+###Step 2: Save a Copy
+In Colab: File → Save a copy in Drive
+
+###Step 3: Configure Paths (Optional)
+At the top of the notebook, adjust paths according to your structure:
+
+```bash
+output_filepath = "/content/gdrive/MyDrive/"           # Where reports will be saved
+rag_folder      = "/content/gdrive/MyDrive/CWE-top25"   # Folder with RAG dataset
+INTERIM_SAVE_PATH = "/content/gdrive/MyDrive/.smart_sast_interim"  # Temporary saves
+```
+###Step 4: Run the Notebook
+- Execute cells in order. The system will:
+- Mount your Google Drive automatically
+- Install required dependencies
+- Download the quantized LLM model (~1GB)
+- Prompt you for the file/directory path to analyze
+
+###Step 5: Analyze Your Code
+Enter the path to a file or directory in Google Drive:
+```bash
+➡️  Enter a Google Drive file or directory path (or 'q' to quit): 
+/content/gdrive/MyDrive/my_project/vulnerable.py
+```
+###Step 6: Review Results
+Reports will be saved to your output_filepath:
+```bash
+📁 /content/gdrive/MyDrive/
+├── 20260421120000-smart_sast_2_0_5-final-cuda-RAG-vulnerable.py.json  ← Clean report
+└── 20260421120000-smart_sast_2_0_5-all-cuda-RAG-vulnerable.py.json    ← All findings
+```
+
+
 
 ## 🛠️ Requisitos Previos
 
