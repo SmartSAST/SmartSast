@@ -1,3 +1,58 @@
+# 🛡️ SmartSAST v2.3 - Colab Optimized with Full RAG Integration
+
+![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)
+
+> **Versión:** 2.3 (Hardened) | **Última actualización:** Abril 2026
+
+**SmartSAST** es una herramienta innovadora de *Static Application Security Testing* (SAST) que utiliza **Modelos de Lenguaje Grandes (LLMs)** para identificar vulnerabilidades de seguridad directamente en tu código fuente. Diseñada para privacidad y facilidad de uso, SmartSAST proporciona análisis preciso impulsado por IA **sin enviar tu código a servidores externos**.
+
+---
+
+## 🚀 Novedades en la Versión 2.3
+
+| Característica | Descripción | Beneficio |
+|---------------|-----------|-----------|
+| 🔍 **RAG Optimizado** | Carga bajo demanda + expansión semántica de CWEs relacionados | Menor uso de memoria, mayor precisión contextual |
+| 📊 **Reportes en Vivo** | Progreso en tiempo real con barras de avance y estadísticas | Mejor experiencia de usuario y monitoreo |
+| 🧹 **Gestión de Memoria** | Limpieza automática de GPU/RAM configurable | Evita desconexiones en Colab Free Tier |
+| ⚡ **Optimizaciones Colab** | Saltar análisis innecesarios, caché de AST, modelos cuantizados | Hasta 3x más rápido en entornos limitados |
+| 🔄 **Guardado Progresivo** | Guardado automático cada X segundos durante el análisis | Protege tu trabajo ante desconexiones |
+| 🎯 **Filtrado Inteligente** | Pre-filtrado semántico basado en patrones de código | Reduce llamadas innecesarias al LLM |
+
+---
+
+## 📋 ¿Qué hace SmartSAST?
+
+SmartSAST es una herramienta SAST construida en Python que:
+
+1. 🔎 **Escanea código** con Semgrep para hallazgos iniciales basados en reglas
+2. 🧠 **Verifica con LLM** cada hallazgo para reducir falsos positivos
+3. 🔗 **Analiza flujos de taint** (intra e inter-procedurales) para detectar inyecciones
+4. 🎯 **Realiza análisis semántico** para encontrar vulnerabilidades de lógica de negocio
+5. 🧩 **Fusiona resultados** con verificación AST para máxima precisión
+6. 📄 **Genera reportes JSON** estructurados con CWE, CWSS y soluciones
+
+---
+
+## 🛠️ Requisitos Previos
+
+### Entorno Recomendado
+- ✅ **Google Colab** (Free/Pro/Pro+) con GPU o TPU
+- ✅ Conexión a Internet para descargar modelos y dependencias
+- ✅ Cuenta de Google Drive con espacio disponible
+
+### Dataset RAG (Opcional pero Recomendado)
+```bash
+# Descargar el dataset CWE-top25
+# URL: https://github.com/NLPSaST/SmartSast/raw/main/CWE-top25-20250705T164339Z-1-001.zip
+
+
+
+
+
+------------------------------------------------------------------------------------
 # SmartSast: AI-Powered SAST for Local, Private Code Scanning
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1FLn_i1Ln23pR7Sr25mafutaicASZa6LE?usp=sharing)
 SmartSast is an innovative Static Application Security Testing (SAST) tool that uses **Large Language Models (LLMs)** to identify security vulnerabilities directly in your source code. Designed for privacy and ease of use, SmartSast provides **accurate, AI-driven analysis without sending your code to external servers.**
