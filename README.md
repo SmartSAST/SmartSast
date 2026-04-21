@@ -120,6 +120,7 @@ Includes all intermediate findings: verified, alternative, rejected, taint flows
 ## ⚙️ Configuration Parameters - Complete Reference
 
 📁 Paths and Storage
+
 |Parameter|Type|Default Value|Function|
 |---|---|---|---|
 |output_filepath|str|"/content/gdrive/MyDrive/"|Base directory in Google Drive where final JSON reports will be saved|
@@ -127,18 +128,21 @@ Includes all intermediate findings: verified, alternative, rejected, taint flows
 |INTERIM_SAVE_PATH|str|"/content/gdrive/MyDrive/.smart_sast_interim"|Directory for progressive saves during analysis (protects against disconnections)|
 
 🎯 LLM Confidence Thresholds
+
 |Parameter|Type|Default Value|Function|
 |---|---|---|---|
 |SEMGREP_VERIFY_THRESHOLD|int|70|Minimum confidence percentage the LLM must report to confirm a Semgrep finding as a true positive|
 |SEMANTIC_CONFIRM_THRESHOLD|int|70|Minimum confidence percentage for a semantic analysis finding to be included in the final report|
 
 🔗 Taint Analysis Configuration
+
 |Parameter|Type|Default Value|Function|
 |---|---|---|---|
 |TAINT_MAX_HOPS|int|5|Maximum depth for inter-procedural taint flow analysis (how many "hops" between functions to trace)|
 |SEMANTIC_PREFILTER_ENABLED|bool|True|Enables smart pre-filtering that skips semantic analysis on code chunks without relevant patterns|
 
 🧹 Google Colab Optimizations
+
 |Parameter|Type|Default Value|Function|
 |---|---|---|---|
 |ENABLE_MEMORY_CLEANUP|bool|True|Enables automatic memory cleanup (GC + GPU cache) to prevent OOM on Colab Free Tier|
@@ -151,19 +155,23 @@ Includes all intermediate findings: verified, alternative, rejected, taint flows
 |_AST_CACHE_MAX_SIZE|int|10|Maximum number of AST trees to keep in cache (LRU eviction)|
 
 💾 Progressive Saving and Recovery
+
 |Parameter|Type|Default Value|Function|
 |---|---|---|---|
 |ENABLE_INTERIM_SAVE|bool|True|Enables automatic partial progress saving every X seconds|
 |INTERIM_SAVE_INTERVAL|int|180|Interval in seconds between progressive saves (recommended: 180s for Colab Free)|
 
 📚 RAG (Retrieval Augmented Generation) Optimizations
+
 |Parameter|Type|Default Value|Function|
 |---|---|---|---|
 |LOAD_RAG_ON_DEMAND|bool|True|Loads only relevant CWE files (found by Semgrep + related) instead of the entire dataset|
 |RAG_EXPANSION_RADIUS|int|1|How many levels of "related CWEs" to include beyond directly found ones (0 = exact only, 1 = +direct relatives)|
 
 📡 Reporting and Processing
+
 |Parameter|Type|Default Value|Function|
+|---|---|---|---|
 |ENABLE_LIVE_REPORTING|bool|True|Displays progress bars and real-time statistics during execution|
 |ENABLE_PARALLEL_CHUNKS|bool|False|Processes code chunks in parallel (⚠️ disabled by default to avoid saturation on Colab Free)|
 |MAX_LLM_WORKERS|int|2|Maximum concurrent workers for LLM inference (adjust based on available VRAM)|
