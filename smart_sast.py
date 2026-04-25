@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-SMART SAST v2.0 - Colab Optimized with Full RAG Integration
+SMART SAST v2.3 - Colab Optimized with Full RAG Integration
 ============================================================
 Semgrep + LLM Verification + Semantic Analysis + AST
 With LIVE PROGRESS REPORTING & Complete RAG Field Utilization
