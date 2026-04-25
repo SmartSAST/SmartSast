@@ -1,6 +1,6 @@
 # 🛡️ SmartSAST v2.3 - Colab Optimized with Full RAG Integration
 
-![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)
+![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)[
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)
 
